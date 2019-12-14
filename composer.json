@@ -1,0 +1,21 @@
+{
+    "name": "alexsobolenko/test-shop",
+    "description": "test task",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "alexsobolenko",
+            "email": "alexsobolenko@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ext-json": "*",
+        "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
