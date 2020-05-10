@@ -2,9 +2,15 @@
 
 namespace App;
 
+use PDO;
+use PDOStatement;
+
+/**
+ * Class Controller
+ * @package App
+ */
 abstract class Controller
 {
-
     /** @var PDO */
     private $db;
 
@@ -13,17 +19,16 @@ abstract class Controller
      */
     public function __construct()
     {
-        $config = require __DIR__."../../config/database.php";
-
-        $dsn = "mysql:host={$config['host']};dbname={$config['dbname']};charset=utf8";
+        $config = require sprintf("%s/../../config/database.php", __DIR__);
+        $dsn = sprintf("mysql:host=%s;dbname=%s;charset=utf8", $config['host'], $config['dbname']);
         $this->db = new \PDO($dsn, $config['username'], $config['password'], []);
     }
 
     /**
      * @param $query
-     * @return bool|\PDOStatement
+     * @return PDOStatement|bool|null
      */
-    public function query($query): ?\PDOStatement
+    public function query($query)
     {
         return $this->db->query($query);
     }

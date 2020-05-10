@@ -2,16 +2,19 @@
 
 namespace App;
 
+/**
+ * Class View
+ * @package App
+ */
 class View
 {
-
     /**
-     * @param       $contentView
+     * @param $contentView
      * @param array $data
      */
     public function generate($contentView, $data = [])
     {
         extract($data);
-        include __DIR__.'/../template/default.php';
+        include sprintf("%s/../template/default.php", __DIR__);
     }
 }
